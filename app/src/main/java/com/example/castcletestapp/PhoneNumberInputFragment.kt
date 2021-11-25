@@ -30,23 +30,21 @@ class PhoneNumberInputFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PhoneNumberInputViewModel::class.java)
-        var listCountry = ArrayList<Int>()
 
-        for (i in 1..4){
-            listCountry.add(i)
-        }
-
-        viewModel.getCountryList().observe(viewLifecycleOwner, Observer {
-            for (item in it.countryList) {
-                Log.d("Beznnz"," code: ${item.code}")
-            }
-        })
-        val adapter = ArrayAdapter(mContext, android.R.layout.simple_spinner_dropdown_item, listCountry)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        var countryName = ArrayList<String>()
 
         binding.apply {
+            viewModel.getCountryList().observe(viewLifecycleOwner, Observer {
+                countryName.clear()
+                for (data in it.countryList) {
+                    countryName.add(data.name)
+                }
+                val adapter = ArrayAdapter(mContext, android.R.layout.simple_spinner_dropdown_item, countryName)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                countryList.adapter = adapter
+            })
             btnSendOtp.setOnClickListener { Log.d("Beznnz", "test") }
-            countryList.adapter = adapter
+
         }
     }
 
