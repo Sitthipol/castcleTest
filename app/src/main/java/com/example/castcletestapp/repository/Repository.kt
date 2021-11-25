@@ -4,33 +4,38 @@ import com.example.castcletestapp.service.RetrofitClient
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.castcletestapp.model.Country
+import com.example.castcletestapp.model.CountryList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 object Repository {
-    val countryLiveData = MutableLiveData<Country>()
+    val countryLiveData = MutableLiveData<CountryList>()
 
-    fun getCountry(): MutableLiveData<Country> {
+    fun getCountry(): MutableLiveData<CountryList> {
 
         val call = RetrofitClient.apiInterface.getCountry()
 
-        call.enqueue(object: Callback<Country> {
-            override fun onFailure(call: Call<Country>, t: Throwable) {
-                Log.v("DEBUG : ", t.message.toString())
+        call.enqueue(object : Callback<CountryList> {
+            override fun onFailure(call: Call<CountryList>, t: Throwable) {
+                Log.v("DEBUG : Failure ", t.message.toString())
             }
 
             override fun onResponse(
-                call: Call<Country>,
-                response: Response<Country>
+                call: Call<CountryList>,
+                response: Response<CountryList>
             ) {
-                Log.v("DEBUG : ", response.body().toString())
+                Log.v("DEBUG : Response ", response.body().toString())
 
                 val data = response.body()
 
-                val countryList = data!!.country
-
-                countryLiveData.value = Country(countryList)
+                data!!.apply {
+//                    val code = code
+//                    val dialCode = dialCode
+//                    val name = name
+//                    val flag = flag
+                }
+                    countryLiveData.value = CountryList(data.countryList)
             }
         })
 
