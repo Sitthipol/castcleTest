@@ -12,6 +12,7 @@ class PhoneNumberInputViewModel : ViewModel() {
     private lateinit var servicesLiveData: MutableLiveData<CountryList>
     fun getCountryList(): MutableLiveData<CountryList> {
         servicesLiveData = Repository.getCountry()
+
         return servicesLiveData
     }
 

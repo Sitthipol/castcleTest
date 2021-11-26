@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/phoneNumberInputFragment"
         android:name="com.example.castcletestapp.PhoneNumberInputFragment"
-        android:label="PhoneNumberInputFragment" />
+        android:label="PhoneNumberInputFragment" >
+        <action
+            android:id="@+id/action_phoneNumberInputFragment_to_otpVerifyFragment"
+            app:destination="@id/otpVerifyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.castcletestapp.SplashFragment"
@@ -22,4 +26,9 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/otpVerifyFragment"
+        android:name="com.example.castcletestapp.OtpVerifyFragment"
+        android:label="otp_verify_fragment"
+        tools:layout="@layout/otp_verify_fragment" />
 </navigation>
