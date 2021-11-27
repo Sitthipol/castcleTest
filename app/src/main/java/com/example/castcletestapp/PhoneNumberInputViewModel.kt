@@ -1,9 +1,7 @@
 package com.example.castcletestapp
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.castcletestapp.model.Country
 import com.example.castcletestapp.model.CountryList
 import com.example.castcletestapp.repository.Repository
 

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -48,21 +49,17 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener 
 
                 val adapter = ArrayAdapter(
                     mContext,
-                    android.R.layout.simple_spinner_dropdown_item,
+                    R.layout.spinner_item_list,
                     countryName
                 )
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                adapter.setDropDownViewResource(R.layout.spinner_item_list)
                 this.spinnerCountryList.adapter = adapter
                 this.spinnerCountryList.onItemSelectedListener = this@PhoneNumberInputFragment
                 this.spinnerCountryList.setSelection(adapter.getPosition("Thailand"))
             })
             this.btnSendOtp.setOnClickListener {
-                activity?.getSharedPreferences("VERIFY_PREF", Context.MODE_PRIVATE)?.edit().also {
-                    it?.putString("phoneNumber",  "${binding.phoneNumberHeaders.text}${edPhoneNumber.text}")
-                    it?.commit()
-                    findNavController().navigate(R.id.otpVerifyFragment)
-                }
-
+                val bundle = bundleOf("phoneNumber" to "${binding.phoneNumberHeaders.text}${edPhoneNumber.text}")
+                findNavController().navigate(R.id.otpVerifyFragment, bundle)
             }
 
         }

@@ -33,12 +33,7 @@ class OtpVerifyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(OtpVerifyViewModel::class.java)
 
-        activity?.getSharedPreferences("VERIFY_PREF", Context.MODE_PRIVATE).also {
-            it?.getString("phoneNumber", "").apply {
-                //Your code was sent to +66 89492 3675 format
-                binding.tvOtpDecs.text = "Your code was sent to $this"
-            }
-        }
+        binding.tvOtpDecs.text = "Your code was sent to ${arguments?.getString("phoneNumber")}"
         count = object : CountDownTimer(60000, 100) {
             override fun onTick(time: Long) {
                 Log.d("Beznnz", "onTick: ${time/1000} ")
@@ -48,7 +43,7 @@ class OtpVerifyFragment : Fragment() {
             override fun onFinish() {
                 Log.d("Beznnz", "onFinish: 0")
             }
-        }
+        }.start()
         binding.tvResend.setOnClickListener {
             count?.cancel()
             (count as CountDownTimer).start()
