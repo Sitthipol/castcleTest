@@ -21,6 +21,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.castcletestapp.databinding.PhoneNumberInputFragmentBinding
+import java.util.regex.Pattern
 
 class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
     View.OnClickListener {
@@ -65,7 +66,7 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
             })
 
             edPhoneNumber.doAfterTextChanged {
-                if (!it.isNullOrBlank()) {
+                if (!it.isNullOrBlank() && Pattern.matches("^[+]?[0-9]{9,13}\$", it)) {
                     this.btnSendOtp.isEnabled = true
                     this.btnSendOtp.setOnClickListener(this@PhoneNumberInputFragment)
                     this.btnSendOtp.setTextColor(ContextCompat.getColor(mContext, R.color.white))
@@ -102,7 +103,8 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
         when (view?.id) {
             R.id.btn_send_otp -> {
                 val bundle =
-                    bundleOf("phoneNumber" to "${binding.phoneNumberHeaders.text}${binding.edPhoneNumber.text}")
+                    bundleOf("phoneNumber" to "${binding.edPhoneNumber.text}")
+                bundle.putString("countryCode", "${binding.phoneNumberHeaders.text}")
                 findNavController().navigate(R.id.otpVerifyFragment, bundle)
             }
         }

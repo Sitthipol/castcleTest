@@ -1,11 +1,12 @@
 package com.example.castcletestapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.telephony.PhoneNumberUtils
 import android.text.Editable
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,11 +37,11 @@ class OtpVerifyFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(OtpVerifyViewModel::class.java)
 
-        binding.tvOtpDecs.text = "Your code was sent to ${arguments?.getString("phoneNumber")}"
         count = object : CountDownTimer(60000, 100) {
             override fun onTick(time: Long) {
                 binding.tvResendTimer.text = "Resend Code ${time / 1000}s"
@@ -61,8 +62,10 @@ class OtpVerifyFragment : Fragment() {
         }
 
         binding.apply {
+
+            this.tvOtpDecs.text = getString(R.string.otp_code_sent__with_phone_number) + " ${arguments?.getString("countryCode")} ${PhoneNumberUtils.formatNumber(arguments?.getString("phoneNumber"))}"
             this.btnNext.setOnClickListener {
-                Toast.makeText(mContext, "Otp verify", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "OTP verify ${viewModel.showOtp()}", Toast.LENGTH_SHORT).show()
             }
 
             viewModel.getOtpVerifyList().observe(viewLifecycleOwner, Observer { otpSize ->

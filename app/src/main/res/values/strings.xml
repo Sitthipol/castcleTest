@@ -2,4 +2,5 @@
     <string name="app_name">CastcleTestApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="register">Register</string>
+    <string name="otp_code_sent__with_phone_number">Your code was sent to </string>
 </resources>

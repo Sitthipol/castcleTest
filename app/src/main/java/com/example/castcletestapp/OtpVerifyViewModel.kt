@@ -1,5 +1,6 @@
 package com.example.castcletestapp
 
+import android.telephony.PhoneNumberUtils
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,5 +22,13 @@ class OtpVerifyViewModel : ViewModel() {
             otpVerityList.removeAt(position)
         }
         otpVerifyEnable.value = otpVerityList.size
+    }
+
+    fun showOtp(): String {
+        var otpText = ""
+        for (otp in otpVerityList) {
+            otpText += otp
+        }
+        return otpText
     }
 }
