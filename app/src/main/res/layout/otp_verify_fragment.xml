@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/light_black"
     android:layout_height="match_parent"
     tools:context=".OtpVerifyFragment">
 
@@ -11,6 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter 6 digit code"
+        android:textSize="31sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +25,10 @@
         android:id="@+id/tv_otp_decs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
         android:text="Your code was sent to +66 89492 3675"
+        android:textSize="18sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_otp_title" />
@@ -29,6 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="รหัสชุด OTP SAWc1548"
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_otp_decs"
         app:layout_constraintStart_toStartOf="@+id/tv_otp_decs"
         app:layout_constraintTop_toBottomOf="@+id/tv_otp_decs" />
@@ -41,41 +53,64 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_otp_code" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_resend_title"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/resend_layout"
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="end"
-        android:text="Don't receive it yet?"
-        app:layout_constraintEnd_toStartOf="@+id/btn_next"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp_verify" />
-
-    <TextView
-        android:id="@+id/tv_resend"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Send again"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_resend_title"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_next"
-        app:layout_constraintTop_toTopOf="@+id/tv_resend_title" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_verify">
+
+        <TextView
+            android:id="@+id/tv_resend_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="Don't receive it yet?"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_resend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Send again"
+            android:paddingStart="18dp"
+            android:textColor="@color/light_blue"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
 
     <TextView
+
         android:id="@+id/tv_resend_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resend Code 60s"
-        app:layout_constraintEnd_toEndOf="@+id/tv_resend"
-        app:layout_constraintStart_toStartOf="@+id/tv_resend_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_resend_title" />
+        android:textColor="@color/disable_black"
+        android:textSize="16sp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/resend_layout"
+        app:layout_constraintTop_toBottomOf="@+id/resend_layout" />
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/fade_black"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="21dp"
+        android:text="next"
+        android:background="@drawable/black_round_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

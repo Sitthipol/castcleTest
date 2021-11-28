@@ -11,7 +11,7 @@
         android:id="@+id/phone_number_input"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black">
+        android:background="@color/light_black">
 
         <TextView
             android:id="@+id/message"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="55dp"
-            android:text="What's Your Telephone number ?"
+            android:text="What's Your \nTelephone number ?"
             android:textColor="@color/white"
             android:textSize="31sp"
             android:textStyle="bold"
@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
+            android:textSize="18sp"
             android:text="Welcome to Castcle"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/message"
@@ -41,47 +42,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="55dp"
             android:layout_marginEnd="15dp"
-            android:background="@color/white"
+            android:background="@drawable/fade_black_round_background"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/btn_send_otp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_welcome_castcle">
 
             <Spinner
                 android:id="@+id/spinner_country_list"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:autofillHints="TH"
                 app:layout_constraintBottom_toBottomOf="@+id/ed_phone"
                 app:layout_constraintEnd_toStartOf="@+id/ed_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/ed_phone" />
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="@color/black" />
+
             <TextView
                 android:id="@+id/phone_number_headers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
                 android:text="66+"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/ed_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white" />
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/fade_black"
+                android:gravity="start"
+                android:hint="enter your number"
+                android:inputType="phone"
+                android:textColor="@color/fade_white"
+                android:textColorHint="@color/fade_white"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_phone_input_decs"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="You'll use this email when you login and when you lose your password."
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/btn_send_otp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/light_white"
+            android:textSize="14sp"
+            android:layout_marginTop="29dp"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <Button
@@ -89,6 +111,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sent OTP"
+            android:textColor="@color/fade_black"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="21dp"
+            android:background="@drawable/black_round_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -29,13 +29,7 @@ object Repository {
 
                 val data = response.body()
 
-                data!!.apply {
-//                    val code = code
-//                    val dialCode = dialCode
-//                    val name = name
-//                    val flag = flag
-                }
-                    countryLiveData.value = CountryList(data.countryList)
+                countryLiveData.value = CountryList(data!!.countryList)
             }
         })
 
