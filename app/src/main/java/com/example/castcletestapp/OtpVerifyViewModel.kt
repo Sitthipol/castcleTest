@@ -1,7 +1,5 @@
 package com.example.castcletestapp
 
-import android.telephony.PhoneNumberUtils
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 

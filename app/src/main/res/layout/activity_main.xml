@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/tv_app_title"
             android:text="Register"
-            android:textSize="18dp"
+            android:textSize="@dimen/dimen_18"
             android:layout_marginStart="41dp"
             android:textColor="@color/white"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimen_0"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -3,4 +3,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="register">Register</string>
     <string name="otp_code_sent__with_phone_number">Your code was sent to </string>
+    <string name="welcome_castcle">Welcome Castcle</string>
+    <string name="welcome_castcle_decs">A Decentralized Social Media \nfor Everyone</string>
+    <string name="button_next">Next</string>
+    <string name="resend_code_60s">Resend Code 60s</string>
+    <string name="otp_code">รหัสชุด OTP SAWc1548</string>
+    <string name="otp_verify_title">Your code was sent to +66 89492 3675</string>
+    <string name="otp_suggest_label">Enter 6 digit code</string>
+    <string name="phone_number_title">What\'s Your \nTelephone number ?</string>
+    <string name="welcome_to_castcle">Welcome to Castcle</string>
+    <string name="phone_number_suggest">You\'ll use this email when you login and when you lose your password.</string>
+    <string name="sent_otp">Sent OTP</string>
+    <string name="phone_number_hint">enter your number</string>
+    <string name="phone_number_thai_code">+66</string>
 </resources>

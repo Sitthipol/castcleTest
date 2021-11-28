@@ -1,20 +1,15 @@
 package com.example.castcletestapp
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.EditText
+import android.widget.Spinner
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -29,8 +24,7 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
     private lateinit var binding: PhoneNumberInputFragmentBinding
     private lateinit var viewModel: PhoneNumberInputViewModel
     private lateinit var mContext: Context
-    var countryDialCode = ArrayList<String>()
-    var countryCode = ArrayList<String>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,23 +41,14 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
 
         binding.apply {
             viewModel.getCountryList().observe(viewLifecycleOwner, Observer {
-                countryCode.clear()
-                countryDialCode.clear()
-                for (data in it.countryList) {
-                    countryCode.add(data.code)
-                    countryDialCode.add(data.dialCode)
-                }
-
-                val adapter = ArrayAdapter(
-                    mContext,
-                    R.layout.spinner_item_list,
-                    countryCode
-                )
-                adapter.setDropDownViewResource(R.layout.spinner_item_list)
-                this.spinnerCountryList.adapter = adapter
-                this.spinnerCountryList.onItemSelectedListener = this@PhoneNumberInputFragment
-                this.spinnerCountryList.setSelection(adapter.getPosition("TH"))
+                viewModel.setCountryList(it)
             })
+
+            viewModel.getCountryCodeList().observe(viewLifecycleOwner, Observer {
+                setSpinnerAdapter(it, this.spinnerCountryList)
+            })
+
+            setSpinnerAdapter(viewModel.getDefaultSpinner(), this.spinnerCountryList)
 
             edPhoneNumber.doAfterTextChanged {
                 if (!it.isNullOrBlank() && Pattern.matches("^[+]?[0-9]{9,13}\$", it)) {
@@ -81,6 +66,19 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
         }
     }
 
+    private fun setSpinnerAdapter(data: ArrayList<String>, spinnerCountryList: Spinner){
+        val adapter = ArrayAdapter(
+            mContext,
+            R.layout.spinner_item_list,
+            data
+        )
+        adapter.setDropDownViewResource(R.layout.spinner_item_list)
+        spinnerCountryList.adapter = adapter
+        spinnerCountryList.onItemSelectedListener = this@PhoneNumberInputFragment
+        spinnerCountryList.setSelection(adapter.getPosition("TH"))
+        adapter.notifyDataSetChanged()
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.mContext = context
@@ -92,7 +90,10 @@ class PhoneNumberInputFragment : Fragment(), AdapterView.OnItemSelectedListener,
         position: Int,
         id: Long
     ) {
-        binding.phoneNumberHeaders.text = countryDialCode[position]
+        viewModel.getCountryDialCodeList().observe(viewLifecycleOwner, Observer {
+            binding.phoneNumberHeaders.text = it[position]
+        })
+        binding.edPhoneNumber.requestFocus()
     }
 
     override fun onNothingSelected(adapterView: AdapterView<*>?) {

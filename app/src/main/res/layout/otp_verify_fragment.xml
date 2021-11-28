@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/light_black"
     android:layout_height="match_parent"
+    android:background="@color/light_black"
     tools:context=".OtpVerifyFragment">
 
     <TextView
         android:id="@+id/tv_otp_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter 6 digit code"
-        android:textSize="31sp"
+        android:layout_marginTop="@dimen/dimen_55"
         android:gravity="center"
+        android:text="@string/otp_suggest_label"
         android:textColor="@color/white"
+        android:textSize="@dimen/dimen_31sp"
         android:textStyle="bold"
-        android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
-        android:text="Your code was sent to +66 89492 3675"
-        android:textSize="18sp"
+        android:text="@string/otp_verify_title"
         android:textColor="@color/white"
+        android:textSize="@dimen/dimen_18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_otp_title" />
@@ -37,10 +37,10 @@
         android:id="@+id/tv_otp_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="รหัสชุด OTP SAWc1548"
-        android:textColor="@color/white"
         android:layout_marginTop="5dp"
-        android:textSize="18sp"
+        android:text="@string/otp_code"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_18sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_otp_decs"
         app:layout_constraintStart_toStartOf="@+id/tv_otp_decs"
         app:layout_constraintTop_toBottomOf="@+id/tv_otp_decs" />
@@ -57,9 +57,9 @@
 
     <LinearLayout
         android:id="@+id/resend_layout"
-        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_55"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,23 +67,23 @@
 
         <TextView
             android:id="@+id/tv_resend_title"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimen_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="end"
             android:text="Don't receive it yet?"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dimen_16sp" />
 
         <TextView
             android:id="@+id/tv_resend"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingStart="@dimen/dimen_18"
             android:text="Send again"
-            android:paddingStart="18dp"
             android:textColor="@color/light_blue"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dimen_16sp" />
 
     </LinearLayout>
 
@@ -93,10 +93,10 @@
         android:id="@+id/tv_resend_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Resend Code 60s"
+        android:layout_marginTop="@dimen/dimen_13"
+        android:text="@string/resend_code_60s"
         android:textColor="@color/disable_black"
-        android:textSize="16sp"
-        android:layout_marginTop="13dp"
+        android:textSize="@dimen/dimen_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/resend_layout"
         app:layout_constraintTop_toBottomOf="@+id/resend_layout" />
@@ -105,12 +105,12 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/disable_black"
-        android:layout_marginStart="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="21dp"
-        android:text="next"
+        android:layout_marginStart="@dimen/dimen_23"
+        android:layout_marginEnd="@dimen/dimen_23"
+        android:layout_marginBottom="@dimen/dimen_21"
         android:background="@drawable/black_round_background"
+        android:text="@string/button_next"
+        android:textColor="@color/disable_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

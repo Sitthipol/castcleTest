@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="15dp"
-    android:paddingEnd="15dp"
+    android:paddingStart="@dimen/dimen_15"
+    android:paddingEnd="@dimen/dimen_15"
     android:weightSum="6"
     tools:context=".OtpViewFragment">
 
     <EditText
         android:id="@+id/ed_pin1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -21,13 +21,13 @@
         android:maxLength="1"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
     <EditText
         android:id="@+id/ed_pin2"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -36,13 +36,13 @@
         android:maxLength="1"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
     <EditText
         android:id="@+id/ed_pin3"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -51,13 +51,13 @@
         android:maxLength="1"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
     <EditText
         android:id="@+id/ed_pin4"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -66,13 +66,13 @@
         android:maxLength="1"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
     <EditText
         android:id="@+id/ed_pin5"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -81,13 +81,13 @@
         android:maxLength="1"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
     <EditText
         android:id="@+id/ed_pin6"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/dimen_8"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
         android:cursorVisible="false"
@@ -97,6 +97,6 @@
         android:textAlignment="gravity"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="31sp" />
+        android:textSize="@dimen/dimen_31sp" />
 
 </LinearLayout>
