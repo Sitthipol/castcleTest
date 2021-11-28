@@ -105,7 +105,7 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/fade_black"
+        android:textColor="@color/disable_black"
         android:layout_marginStart="23dp"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="21dp"
